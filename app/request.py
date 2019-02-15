@@ -18,13 +18,37 @@ def get_news(category):
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
-        get_news_response = json.loads(get_movies_data)
+        get_news_response = json.loads(get_news_data)
 
         news_articles = None
 
-        if get_news_response['results']:
+        if get_news_response['articles']:
             news_articles_list = get_news_response['articles']
             news_articles = process_articles(news_articles_list)
 
+
+    return news_articles
+
+def process_articles(news_list):
+    '''
+    Function  that processes the news result and transform them to a list of Objects
+
+    Args:
+        news_list: A list of dictionaries that contain news details
+
+    Returns :
+        news_articles: A list of news objects
+    '''
+    news_articles = []
+    for news_item in news_list:
+        id = news_item.get('id')
+        title = news_item.get('original_title')
+        overview = news_item.get('overview')
+        poster = news_item.get('poster_path')
+        
+
+        if poster:
+            news_object = news(id,title,overview,poster)
+            news_articles.append(news_object)
 
     return news_articles
