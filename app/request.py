@@ -1,8 +1,8 @@
 from app import app
 import urllib.request,json
-from .models import source
+from .models import news
 
-News = source.News
+Source = news.Source
 
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
@@ -14,22 +14,22 @@ def get_news(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(category,api_key)
+    get_news_url = base_url.format(category, api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
         get_news_response = json.loads(get_news_data)
 
-        news_articles = None
+        news_sources = None
 
-        if get_news_response['articles']:
-            news_articles_list = get_news_response['articles']
-            news_articles = process_articles(news_articles_list)
+        if get_news_response['sources']:
+            news_sources_list = get_news_response['sources']
+            news_sources =  process_news(news_sources_list)
 
 
-    return news_articles
+    return news_sources
 
-def process_articles(news_list):
+def process_news(news_list):
     '''
     Function  that processes the news result and transform them to a list of Objects
 
@@ -37,18 +37,21 @@ def process_articles(news_list):
         news_list: A list of dictionaries that contain news details
 
     Returns :
-        news_articles: A list of news objects
+        news_sources: A list of news objects
     '''
-    news_articles = []
+    news_sources = []
+
     for news_item in news_list:
         id = news_item.get('id')
-        title = news_item.get('original_title')
-        overview = news_item.get('overview')
-        poster = news_item.get('poster_path')
+        description= news_item.get('description')
+        url = news_item.get("url")
+        category = news_item.get("category")
+        language = news_item.get("language")
+        country = news_item.get("country")
         
 
-        if poster:
-            news_object = news(id,title,overview,poster)
-            news_articles.append(news_object)
+        if id:
+            news_object = Source(id,description,url,category,language,country)
+            news_sources.append(news_object)
 
-    return news_articles
+    return news_sources
