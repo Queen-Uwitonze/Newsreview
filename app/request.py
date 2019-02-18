@@ -43,6 +43,7 @@ def process_news(news_list):
 
     for news_item in news_list:
         id = news_item.get('id')
+        name = news_item.get('name')
         description= news_item.get('description')
         url = news_item.get("url")
         category = news_item.get("category")
@@ -51,7 +52,27 @@ def process_news(news_list):
         
 
         if id:
-            news_object = Source(id,description,url,category,language,country)
+            news_object = Source(id,name,description,url,category,language,country)
             news_sources.append(news_object)
 
     return news_sources
+
+def get_news_sources(id):
+    get_news_sources_details_url = base_url.format(id,api_key)
+
+    with urllib.request.urlopen(get_news_sources_details_url) as url:
+        news_details_data = url.read()
+        news_details_response = json.loads(news_details_data)
+
+        news_object = None
+        if news_details_response:
+            id = news_details_response.get('id')
+            name = news_details_response.get('original_name')
+            description = news_details_response.get('description')
+            url= news_details_response.get('url_path')
+            language = news_details_response.get('language')
+            country = news_details_response.get('country')
+
+            news_object = news(id,name,description,url,category,language,country)
+
+    return news_object

@@ -1,0 +1,7 @@
+{% macro displaySourceList(news_list) %}
+
+{% for news_sources in news_list %}
+<li>{{ news_sources.id}}</li>
+{% endfor %}
+
+{% endmacro %}

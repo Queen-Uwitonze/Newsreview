@@ -18,7 +18,7 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
     '''
-    Development  configuration child class
+    Development  configuration child classbusiness
 
     Args:
         Config: The parent configuration class with General configuration settings
