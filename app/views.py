@@ -10,9 +10,10 @@ def index():
     '''
     title = 'Queens News Review Website Online'
     general_news = get_news('business')
-    sport_news = get_news('sport')
-    finances_news = get_news ('finance')
-    return render_template('index.html', title = title, general = general_news,sport = sport_news,finance =finances_news )
+    entertainment_news = get_news('entertainment')
+   
+ 
+    return render_template('index.html', title = title, general = general_news,entertainment = entertainment_news )
 
 @app.route('/news_sources/<id>')
 def news_sources(id):
@@ -21,6 +22,6 @@ def news_sources(id):
     View news_sources page function that returns the news details page and its data
     '''
     news = get_news_sources(id)
-    title = f'{news.title}'
+    title = f'{news.name}'
 
-    return render_template('movie.html',title = title,news = news)
+    return render_template('news.html',title = title,news = news)
