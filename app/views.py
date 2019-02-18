@@ -10,7 +10,9 @@ def index():
     '''
     title = 'Queens News Review Website Online'
     general_news = get_news('business')
-    return render_template('index.html', title = title, general = general_news)
+    sport_news = get_news('sports')
+    finances_news = get_news ('fincances')
+    return render_template('index.html', title = title, general = general_news,sports = sport_news,finances =finances_news )
 
 @app.route('/news_sources/<id>')
 def news_sources(id):
