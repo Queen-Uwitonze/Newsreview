@@ -2,7 +2,7 @@
 
 {% for news_sources in news_list %}
 <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
-  <div class="panel panel-info">
+  <div class="panel panel-default">
     <div class="panel-heading">
       <li class="text-center">
         <a href="/news_sources/{{news_sources.id}}">
@@ -12,7 +12,7 @@
     <p>{{ news_sources.description }}</p>
     <p>News {{ news_sources.language }} category.</p>
     <div class="panel-heading">
-      <p class="uppercase"> {{ news_sources.country }} </p>
+      <p class="country"> {{ news_sources.country }} </p>
 
     </div>
   </div>

@@ -1,13 +1,14 @@
-
 body {
   margin: 0;
   padding: 0;
   font-family: 'Slabo 27px', serif;
-  color : white
+  color : black;
+  background-color :black;
 }
 .nav {
   float: right;
   margin-top: 8px;
+  font-size: 30px;
 }
 .nav li {
   display: inline;
@@ -16,7 +17,7 @@ body {
   margin-left: 35px;
 }
 .nav li a {
-  color: #444;
+  color:white;
   text-decoration: none;
 }
 h3 {
@@ -25,16 +26,37 @@ h3 {
   margin-top: 30px;
   text-align: center;
   letter-spacing: -1px;
-  color: #999;
+  color: white;
 }
 .container {
   width: 1200px;
   margin: 0 auto;
 }
+/* .words{
+  background-color: azure;
+  width:600px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+.image-wrapper{
+  float:left;
+  width: 25%;
+  padding-left: 20px;
+}
+
 .header {
-  padding: 60px;
+  padding: 30px;
   text-align: center;
-  background: #00788a;
+  background: grey;
   color: white;
   font-size: 30px;
+}
+.country{
+  text-transform: uppercase;
+}
+.panel-heading{
+  text-transform: uppercase;
+}  
+.description{
+  padding: 3px;
 }

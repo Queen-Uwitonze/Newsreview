@@ -2,7 +2,7 @@ from app import app
 import urllib.request,json
 from .models import news,articles
 Article =  articles.Article
-# from .models import article
+# from .models import articleArticle
 
 Source = news.Source
 # Article = article.Article
@@ -65,11 +65,12 @@ def process_news(news_list):
 
 def get_news_sources(id):
     get_news_sources_details_url = base_url.format(id,api_key)
- 
+    print(get_news_sources_details_url)
 
     with urllib.request.urlopen(get_news_sources_details_url) as url:
         news_details_data = url.read()
         news_details_response = json.loads(news_details_data)
+        print(news_details_response)
        
         news_object = None
         if news_details_response:
@@ -94,7 +95,7 @@ def get_news_articles(id):
     Function that gets the json response to our url request
     '''
     get_news_articles_url = article_base_url.format(id, api_key)
-
+    print(get_news_articles_url)
     with urllib.request.urlopen(get_news_articles_url) as url:
         get_source_data = url.read()
         get_source_response = json.loads(get_source_data)
@@ -129,6 +130,7 @@ def process_news_articles(article_list):
         urlToImage = news_item.get("urlToImage")
         publishedAt = news_item.get("publishedAt")
         content = news_item.get("content")
+
 
         
         news_object =Article(author,title,description,url,urlToImage,publishedAt,content)

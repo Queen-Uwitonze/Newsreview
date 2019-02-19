@@ -4,16 +4,16 @@
 {% block content %}
 {% for article in news %}
 <div class="container">
-  <div class="col-md-3 articles-details">
+  <div class="col-md-6 articles-details">
     <a href={{article.url}} target="_blank">
-      <img src={{article.urlToImage}} alt="IMAGE LOADING..." height='240'>
+      <img src={{article.urlToImage}} alt="IMAGE LOADING..." height='300px'>
     </a>
     <div class="words">
       <h4 class="text-bold"> {{article.title}} </h4>
-      <p class="small">- {{article.author}} </p>
+      <p class="small"> written by: {{article.author}} </p>
       <p class="small">Posted on {{article.publishedAt}}</p>
       <hr>
-      <p> {{article.description}}...
+      <p class="description"> {{article.description}}...
         <a href={{article.url}} target="_blank">Read More</a>
       </p>
     </div>
