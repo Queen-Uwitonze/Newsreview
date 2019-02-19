@@ -1,22 +1,31 @@
 {% extends 'base.html'%}
 <!-- Content block -->
 {% block content %}
-<div class="container">
+{% for news_articles in news_list %}
 
-  <!-- Poster background -->
+<div class="container-fluid">
   <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{news_sources.name}}) no-repeat center center">
-    </div>
-
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 news_sources-details">
-      <h3>{{ news_sources.description }}</h3>
-
-      <p class="overview"> {{ news_sources.url }}</p>
-      <p class="ratings"> <b> {{ news_sources.language }}</b> </p>
-      <p class="ratings"> <b> {{ news_sources.country }}</b> </p>
-
+    <div class="col-md-12 heading">
+      <h1> {{name}} </h1>
     </div>
   </div>
-
+  <div class="row">
+    {% for article in news %}
+    <div class="col-md-3 articles-details">
+      <a href={{news_articles.url}} target="_blank">
+        <img src={{news_articles.urlToImage}} alt="IMAGE LOADING...">
+      </a>
+      <div class="words">
+        <h4 class="text-bold"> {{news_articles.title}} </h4>
+        <p class="small">- {{news_articles.author}} </p>
+        <p class="small">Posted on {{news_articles.publishedAt}}</p>
+        <hr>
+        <p> {{news_articles.description}}...
+          <a href={{news_articles.url}} target="_blank">Read More</a>
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
