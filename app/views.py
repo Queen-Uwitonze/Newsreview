@@ -22,19 +22,19 @@ def Source(id):
     '''
     View news_sources page function that returns the news details page and its data
     '''
-    news = get_news_sources(id)
-    title = f'{news.id}'
+    news = get_news_articles(id)
+    title = f'{id}'
     print(title)
 
     return render_template('news.html',title = title,news = news)
 
-@app.route('/news_articles/<id>')
-def  Article(id):
+# @app.route('//news_articles/<id>')
+# def  Article(id):
 
-    '''
-    View news_sources page function that returns the news details page and its data
-    '''
-    news =  get_news_articles(id)
-    title = f'{news.name}'
+#     '''
+#     View news_sources page function that returns the news details page and its data
+#     '''
+#     news =  get_news_articles(id)
+#     title = f'{news_articles}'
 
-    return render_template('article.html',title = title,news = news)
+#     return render_template('article.html',title = title,news = news)
