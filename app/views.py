@@ -28,13 +28,3 @@ def Source(id):
 
     return render_template('news.html',title = title,news = news)
 
-# @app.route('//news_articles/<id>')
-# def  Article(id):
-
-#     '''
-#     View news_sources page function that returns the news details page and its data
-#     '''
-#     news =  get_news_articles(id)
-#     title = f'{news_articles}'
-
-#     return render_template('article.html',title = title,news = news)

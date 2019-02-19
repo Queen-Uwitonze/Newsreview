@@ -86,6 +86,9 @@ def get_news_sources(id):
 
     return news_object
 
+
+# this the part where we have displayed data or the second class Article
+
 def get_news_articles(id):
     '''
     Function that gets the json response to our url request
