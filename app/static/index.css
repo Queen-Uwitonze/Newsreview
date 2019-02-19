@@ -1,3 +1,40 @@
-ul{
+
+body {
+  margin: 0;
+  padding: 0;
   font-family: 'Slabo 27px', serif;
+  color : white
+}
+.nav {
+  float: right;
+  margin-top: 8px;
+}
+.nav li {
+  display: inline;
+}
+.nav li + li {
+  margin-left: 35px;
+}
+.nav li a {
+  color: #444;
+  text-decoration: none;
+}
+h3 {
+  font-size: 1.7em;
+  font-weight: 100;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #999;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #00788a;
+  color: white;
+  font-size: 30px;
 }

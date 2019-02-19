@@ -108,7 +108,7 @@ def get_news_articles(id):
 
     return news_articles
 
-def process_news_articles(news_list):
+def process_news_articles(article_list):
     '''
     Function  that processes the news result and transform them to a list of Objects
 
@@ -120,7 +120,7 @@ def process_news_articles(news_list):
     '''
     news_articles = []
 
-    for news_item in news_list:
+    for news_item in article_list:
         # id = news_item.get('id')
         author = news_item.get('author')
         title = news_item.get('title')
@@ -129,12 +129,10 @@ def process_news_articles(news_list):
         urlToImage = news_item.get("urlToImage")
         publishedAt = news_item.get("publishedAt")
         content = news_item.get("content")
-       
-        
 
-        if urlToImage:
-            news_object =Article(author,title,description,url,urlToImage,publishedAt,content)
-            news_articles.append(news_object)
+        
+        news_object =Article(author,title,description,url,urlToImage,publishedAt,content)
+        news_articles.append(news_object)
          
 
     return news_articles
